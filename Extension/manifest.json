@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "Hidden Costs Detector",
+    "version": "1.0",
+    "description": "Detects hidden costs on Flipkart and Amazon websites",
+    "browser_action": {
+      "default_popup": "popup.html"
+    },
+    "permissions": [
+      "activeTab",
+      "storage",
+      "webRequest",
+      "webRequestBlocking",
+      "http://*/*",
+      "https://*/*"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://www.flipkart.com/*", "*://www.amazon.in/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
